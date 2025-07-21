@@ -118,19 +118,38 @@ Submitted at: ${new Date().toLocaleString()}
     setIsSubmitting(true);
 
     try {
-      // Note: You'll need to configure EmailJS with your service ID, template ID, and public key
-      // This is a placeholder - you'll need to set up EmailJS account and configure these values
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          to_email: 'jonas.hammarberg@spce.com',
-          subject: 'Case Report Submission',
-          message: generateEmailContent(),
-          from_name: 'Case Report System'
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
+      // For now, we'll simulate email sending - you'll need to configure EmailJS later
+      // To properly configure EmailJS:
+      // 1. Sign up at https://www.emailjs.com/
+      // 2. Create a service (Gmail, Outlook, etc.)
+      // 3. Create an email template
+      // 4. Get your service ID, template ID, and public key
+      // 5. Replace the values below
+      
+      const serviceId = process.env.EMAILJS_SERVICE_ID || 'demo_service';
+      const templateId = process.env.EMAILJS_TEMPLATE_ID || 'demo_template';
+      const publicKey = process.env.EMAILJS_PUBLIC_KEY || 'demo_key';
+      
+      if (serviceId === 'demo_service') {
+        // For demo purposes, just log the content
+        console.log('Email would be sent to jonas.hammarberg@spce.com:');
+        console.log(generateEmailContent());
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } else {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            to_email: 'jonas.hammarberg@spce.com',
+            subject: 'Case Report Submission',
+            message: generateEmailContent(),
+            from_name: 'Case Report System'
+          },
+          publicKey
+        );
+      }
 
       toast({
         title: "Success",
