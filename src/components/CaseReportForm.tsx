@@ -126,18 +126,9 @@ Submitted at: ${new Date().toLocaleString()}
       // 4. Get your service ID, template ID, and public key
       // 5. Replace the values below
       
-      const serviceId = process.env.EMAILJS_SERVICE_ID || 'demo_service';
-      const templateId = process.env.EMAILJS_TEMPLATE_ID || 'demo_template';
-      const publicKey = process.env.EMAILJS_PUBLIC_KEY || 'demo_key';
-      
-      if (serviceId === 'demo_service') {
-        // For demo purposes, just log the content
-        console.log('Email would be sent to jonas.hammarberg@spce.com:');
-        console.log(generateEmailContent());
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      } else {
+      const serviceId = 'service_l7w6o44';
+      const templateId = 'template_0xruv0d';
+      const publicKey = 'c0RbzAq_uFP5eSTnu';
         await emailjs.send(
           serviceId,
           templateId,
@@ -149,7 +140,6 @@ Submitted at: ${new Date().toLocaleString()}
           },
           publicKey
         );
-      }
 
       toast({
         title: "Success",
