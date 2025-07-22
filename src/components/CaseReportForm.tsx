@@ -90,7 +90,7 @@ const CaseReportForm = () => {
     return `
 Case Report Submission
 
-1. XXX® LOT number: ${formData.lotNumber}
+1. SpeedM® LOT number: ${formData.lotNumber}
 2. Anonymized patient identification: ${formData.patientId}
 3. Date of treatment: ${formData.treatmentDate}
 4. Age: ${formData.age}
@@ -101,12 +101,12 @@ Case Report Submission
 9. Type of bleeding: ${formData.bleedingType}
 10. Type of injury: ${formData.injuryType.join(', ')}${formData.injuryOther ? ` - Other: ${formData.injuryOther}` : ''}
 11. Complementary hemostatic measure: ${formData.hemostaticMeasure.join(', ')}${formData.hemostaticOther ? ` - Other: ${formData.hemostaticOther}` : ''}
-12. Could the bleeding be controlled with XXX®: ${formData.bleedingControlled}${formData.bleedingComment ? ` - Comment: ${formData.bleedingComment}` : ''}
+12. Could the bleeding be controlled with SpeedM®: ${formData.bleedingControlled}${formData.bleedingComment ? ` - Comment: ${formData.bleedingComment}` : ''}
 13. How many products were used: ${formData.productsUsed}${formData.productsCount ? ` - Count: ${formData.productsCount}` : ''}
 14. Unexpected reactions: ${formData.unexpectedReactions}${formData.reactionsDescription ? ` - Description: ${formData.reactionsDescription}` : ''}
 15. Difficult conditions: ${formData.difficultConditions.join(', ')}${formData.conditionsOther ? ` - Other: ${formData.conditionsOther}` : ''}
 16. Package opening evaluation: ${formData.packageOpening}${formData.packageComment ? ` - Comment: ${formData.packageComment}` : ''}
-17. Hours until XXX® removal: ${formData.removalHours}
+17. Hours until SpeedM® removal: ${formData.removalHours}
 18. Removal evaluation: ${formData.removalEvaluation}
 
 Submitted at: ${new Date().toLocaleString()}
@@ -196,7 +196,7 @@ Submitted at: ${new Date().toLocaleString()}
           <CardTitle className="text-2xl font-bold text-foreground">Case Report</CardTitle>
           <div className="text-sm text-muted-foreground space-y-2">
             <p>Thank you for your quick action!</p>
-            <p>After using XXX®, please take 1–2 minutes to fill out this short report as completely as possible. Your feedback helps us ensure the product works reliably in real-life situations and improves care for future patients. We kindly request you to provide your email address to prevent misuse. All information will be kept confidential.</p>
+            <p>After using SpeedM®, please take 1–2 minutes to fill out this short report as completely as possible. Your feedback helps us ensure the product works reliably in real-life situations and improves care for future patients. We kindly request you to provide your email address to prevent misuse. All information will be kept confidential.</p>
             <p>Thanks a lot in advance.</p>
           </div>
         </CardHeader>
@@ -206,7 +206,7 @@ Submitted at: ${new Date().toLocaleString()}
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="lotNumber">1. XXX® LOT number:</Label>
+                <Label htmlFor="lotNumber">1. SpeedM® LOT number:</Label>
                 <Input
                   id="lotNumber"
                   value={formData.lotNumber}
@@ -374,7 +374,7 @@ Submitted at: ${new Date().toLocaleString()}
             <div className="space-y-3">
               <Label>10. Type of injury:</Label>
               <div className="space-y-2">
-                {['aaa', 'bbb', 'ccc', 'ddd'].map((injury) => (
+                {['gunshot wound', 'stab wound', 'shrapnel injury', 'amputation wound'].map((injury) => (
                   <div key={injury} className="flex items-center space-x-2">
                     <Checkbox
                       id={`injury-${injury}`}
@@ -442,7 +442,7 @@ Submitted at: ${new Date().toLocaleString()}
 
             {/* Bleeding Control */}
             <div className="space-y-3">
-              <Label>12. Could the bleeding be controlled with XXX®:</Label>
+              <Label>12. Could the bleeding be controlled with SpeedM®:</Label>
               <RadioGroup
                 value={formData.bleedingControlled}
                 onValueChange={(value) => handleInputChange('bleedingControlled', value)}
@@ -588,7 +588,7 @@ Submitted at: ${new Date().toLocaleString()}
 
             {/* Removal Hours */}
             <div className="space-y-2">
-              <Label htmlFor="removalHours">17. After how many hours was XXX® removed from the wound?</Label>
+              <Label htmlFor="removalHours">17. After how many hours was SpeedM® removed from the wound?</Label>
               <Input
                 id="removalHours"
                 value={formData.removalHours}
@@ -599,7 +599,7 @@ Submitted at: ${new Date().toLocaleString()}
 
             {/* Removal Evaluation */}
             <div className="space-y-2">
-              <Label htmlFor="removalEval">18. Evaluate the removal of XXX® from the wound:</Label>
+              <Label htmlFor="removalEval">18. Evaluate the removal of SpeedM® from the wound:</Label>
               <Textarea
                 id="removalEval"
                 placeholder="(e.g. sticking, rebleeding, painless removal, rinsing solution)"
